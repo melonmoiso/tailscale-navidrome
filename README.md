@@ -1,6 +1,6 @@
 Jerarquia de directorios:
 
-  tailscale-navidrome
+tailscale-navidrome
         └──navidromedocker-compose.yml
         └──tailscale-navidrome
         └──navidrome
