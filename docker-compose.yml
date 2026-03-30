@@ -1,0 +1,31 @@
+services:
+  tailscale:
+    image: tailscale/tailscale:latest
+    container_name: tailscale-navidrome
+    hostname: melon  # nombre de dominio local
+    environment:
+      - TS_AUTHKEY=clave_de_tailscale  # clave de autenticación tailscale
+      - TS_STATE_DIR=/var/lib/tailscale
+    volumes:
+      - ./navidrome/tailscale-lib:/var/lib/tailscale
+      - /dev/net/tun:/dev/net/tun
+    cap_add:
+      - NET_ADMIN
+      - SYS_MODULE
+    restart: unless-stopped
+
+  navidrome:
+    image: deluan/navidrome:latest
+    container_name: navidrome
+    user: 1000:1000 # uid de usuario
+    network_mode: "service:tailscale"
+    environment:
+      - ND_SCANSCHEDULE=1h
+      - ND_LOGLEVEL=info
+      - ND_SESSIONTIMEOUT=24h
+    volumes:
+      - ./navidrome/data:/data
+      - ./navidrome/music:/music:ro # permisos de acceso a carpeta de musica
+    restart: unless-stopped
+    depends_on:
+      - tailscale
