@@ -1,4 +1,4 @@
-Jerarquia de direcotrios
+Jerarquia de directorios
 ```
 ├── navidrome
 │   ├── data
