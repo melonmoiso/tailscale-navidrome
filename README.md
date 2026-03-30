@@ -4,4 +4,5 @@ Jerarquia de directorios
 │   ├── data
 │   └── music
 │   └──tailscale-lib
-└── tailscale-navidrome```
+└── tailscale-navidrome
+´´´
