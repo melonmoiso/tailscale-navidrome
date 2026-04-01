@@ -11,6 +11,10 @@ Cree la estructura de carpetas necesaria para los volúmenes:
 mkdir -p navidrome/data navidrome/music navidrome/tailscale-lib
 ```
 
+```
+mkdir  tailscale-navidrome
+```
+
 Crea un archivo llamado docker-compose.yml y pegue el contenido del servicio proporcionado.
 
 Jerarquia de directorios
